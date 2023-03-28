@@ -1,0 +1,51 @@
+docker-compose exec python ./manage.py new_page --name=Cards
+docker-compose exec python ./manage.py makemigrations
+docker-compose exec python ./manage.py migrate
+
+docker-compose exec python ./manage.py makemigrations && docker-compose exec python ./manage.py migrate
+
+
+frontend new page:
+npm run new:container AboutPage
+Create new componenet>
+npm run new Button
+
+storybook:
+npm run storybook
+
+
+cd Acme-Blog
+docker-compose up
+localhost:8081/wt # for admin
+
+
+cd Acme-Blog/frontend
+npm i
+npm run dev
+
+For storybook;
+cd Acme-Blog/frontend
+npm run storybook
+http://localhost:3001
+
+docker reset db:
+docker-compose down --volumes
+docker-compose down --rmi all --volumes
+If problems:
+docker rm -f 6f391dc79a4c --> add the container id to be deleted
+
+
+docker-compose exec python ./manage.py makemigrations
+docker-compose exec python ./manage.py migrate
+docker-compose exec python ./manage.py makemigrations && docker-compose exec python ./manage.py migrate
+
+
+
+ansible -i stages/stage.yml webservers -m ping
+stage1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
